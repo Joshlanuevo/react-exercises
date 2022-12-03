@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 import { exerciseOptions, fetchData } from '../utils/fetchData';
+import HorizontalScroll from "./HorizontalScroll";
 
-const SearchExercises = () => {
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     const [search, setSearch] = useState('');
-    const [exercises, setExercises] = useState([]);
     const [bodyParts, setBodyParts] = useState([]);
 
     useEffect(() => {
@@ -82,6 +82,9 @@ const SearchExercises = () => {
             </div>
             </form>
 
+            <div className="text-left mt-37 p-20" >
+                <HorizontalScroll data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+            </div>
         </div>
     )
 }
